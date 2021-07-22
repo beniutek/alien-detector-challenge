@@ -1,0 +1,2 @@
+class ThreatLogger
+end

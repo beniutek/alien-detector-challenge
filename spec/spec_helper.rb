@@ -1,4 +1,9 @@
 require "bundler/setup"
+require_relative '../lib/sample'
+require_relative '../lib/radar'
+require_relative '../lib/shape_parser'
+require_relative '../lib/shape_detector'
+require_relative '../lib/sample'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
