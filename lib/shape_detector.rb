@@ -7,7 +7,6 @@ class ShapeDetector
   end
 
   def detect(frame)
-    pp "framesie: #{frame.size} - shapesize: #{@shape.size}"
     return no_detection_result if frame.size != @shape.size
 
     score = 0

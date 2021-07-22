@@ -17,24 +17,23 @@ class Radar
   def build_frame(start, fwidth, fheight)
     frame = ""
 
-    (0..fheight).each do |i|
-      new_start = start + i * @width
-      stop = new_start + fwidth
-      frame << "#{@screen[new_start..stop]}"
+    (0..(fheight-1)).each do |i|
+      row_start = start + i * @width
+      stop = row_start + fwidth - 1
+
+      frame << "#{@screen[row_start..stop]}"
     end
 
     frame
   end
 
   def frame_exceeds_boundaries(i, fwidth, fheight)
+    return false if i.zero?
 
+    @width % i > fwidth
   end
 
   def pixels
     @width * @height
-  end
-
-  def pick_frame(width, height)
-
   end
 end

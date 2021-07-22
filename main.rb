@@ -16,15 +16,11 @@ squid_detector = ShapeDetector.new(squid_alien)
 crab_detector = ShapeDetector.new(crab_alien)
 
 results = []
-pp squid_alien
-radar.each_frame(squid_alien[:width], squid_alien[:height]) do |frame|
-  pp frame.chars.each_slice(squid_alien[:width]).map(&:join)
-  # pp squid_detector.detect(frame).to_s + "\% chance"
 
+radar.each_frame(squid_alien[:width], squid_alien[:height]) do |frame|
   result = squid_detector.detect(frame)
 
   if result[:score] > 0
-    pp "adding to results"
     results << result
   end
 end
