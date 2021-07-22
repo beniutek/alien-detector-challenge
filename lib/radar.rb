@@ -8,7 +8,9 @@ class Radar
   def each_frame(fwidth, fheight, &block)
     (0..pixels).each do |i|
       next if frame_exceeds_boundaries(i, fwidth, fheight)
-      yield build_frame(i, fwidth, fheight)
+      pp "i: #{i}"
+
+      yield build_frame(i, fwidth, fheight), i
     end
   end
 
@@ -29,8 +31,9 @@ class Radar
 
   def frame_exceeds_boundaries(i, fwidth, fheight)
     return false if i.zero?
+    return false if i < @width - fwidth
 
-    @width % i > fwidth
+    i % @width + fwidth > @width
   end
 
   def pixels
