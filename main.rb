@@ -4,7 +4,8 @@ require_relative 'lib/shape_parser'
 require_relative 'lib/shape_detector'
 require_relative 'lib/threat_log'
 
-sample = Sample.get_radar_sample
+input = ARGV[0]
+sample = input || Sample.get_radar_sample
 crab_alien_description = Sample.get_crab_alien
 squid_alien_description = Sample.get_squid_alien
 parsed_sample = ShapeParser.new(sample).parse

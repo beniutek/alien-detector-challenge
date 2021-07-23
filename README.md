@@ -2,6 +2,10 @@
 
 `ruby main.rb`
 
+or if you have your own input (which is a radar screen sample)
+
+`ruby main.rb "your radar screen here"`
+
 ### run specs
 
 `bundle exec rspec`
