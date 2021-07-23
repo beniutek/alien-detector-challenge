@@ -1,3 +1,12 @@
+#to start
+
+`ruby main.rb`
+
+#run specs
+
+`bundle exec rspec`
+
+
 ### Known invaders:
 ~~~~
 --o-----o--
