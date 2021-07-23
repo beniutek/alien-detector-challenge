@@ -13,7 +13,7 @@ class ThreatLog
 
   def show_log
     pp @logbook
-    pp @screen
+    pp @screen.chars.each_slice(@width).map(&:join)
   end
 
   private
