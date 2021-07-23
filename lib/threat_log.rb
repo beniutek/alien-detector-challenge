@@ -6,9 +6,9 @@ class ThreatLog
     @logbook = []
   end
 
-  def log(score, starting_point)
-    decorate_screen(starting_point)
-    add_log("threat with score #{score} detected at #{starting_point}")
+  def log(text, score, starting_point, mark = 'X')
+    decorate_screen(starting_point, mark.chars.first)
+    add_log("#{text} threat with score #{score} detected at #{starting_point}")
   end
 
   def show_log
@@ -18,10 +18,8 @@ class ThreatLog
 
   private
 
-  THREAT_MARK = 'X'
-
-  def decorate_screen(starting_point)
-    @screen[starting_point] = THREAT_MARK
+  def decorate_screen(starting_point, mark)
+    @screen[starting_point] = mark
   end
 
   def add_log(text)

@@ -14,14 +14,20 @@ squid_alien = ShapeParser.new(squid_alien_description).parse
 radar = Radar.new(parsed_sample)
 
 squid_detector = ShapeDetector.new(squid_alien, sensitivity: 70.0)
-crab_detector = ShapeDetector.new(crab_alien)
+crab_detector = ShapeDetector.new(crab_alien, sensitivity: 75.0)
 
 threat_log = ThreatLog.new(parsed_sample)
 
 radar.each_frame(squid_alien[:width], squid_alien[:height]) do |frame, i|
   result = squid_detector.detect(frame)
 
-  threat_log.log(result[:score], i) if result[:score] > 0
+  threat_log.log("squid", result[:score], i, 'S') if result[:score] > 0
+end
+
+radar.each_frame(crab_alien[:width], crab_alien[:height]) do |frame, i|
+  result = crab_detector.detect(frame)
+
+  threat_log.log("crab", result[:score], i, 'C') if result[:score] > 0
 end
 
 threat_log.show_log
