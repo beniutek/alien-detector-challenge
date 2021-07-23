@@ -1,8 +1,8 @@
-#to start
+### to start
 
 `ruby main.rb`
 
-#run specs
+### run specs
 
 `bundle exec rspec`
 
